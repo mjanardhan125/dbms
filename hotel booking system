@@ -1,0 +1,22 @@
+CREATE TABLE Rooms (
+  RoomID INT PRIMARY KEY,
+  Type VARCHAR(50),
+  Price DECIMAL(10,2),
+  Available BOOLEAN
+);
+
+CREATE TABLE Customers (
+  CustomerID INT PRIMARY KEY,
+  Name VARCHAR(100),
+  Phone VARCHAR(15)
+);
+
+CREATE TABLE Bookings (
+  BookingID INT PRIMARY KEY,
+  RoomID INT,
+  CustomerID INT,
+  CheckIn DATE,
+  CheckOut DATE,
+  FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID),
+  FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
