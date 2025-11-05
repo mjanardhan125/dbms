@@ -1,0 +1,22 @@
+CREATE TABLE Restaurants (
+  RestaurantID INT PRIMARY KEY,
+  Name VARCHAR(100),
+  Location VARCHAR(100)
+);
+
+CREATE TABLE Dishes (
+  DishID INT PRIMARY KEY,
+  RestaurantID INT,
+  Name VARCHAR(100),
+  Price DECIMAL(10,2),
+  FOREIGN KEY (RestaurantID) REFERENCES Restaurants(RestaurantID)
+);
+
+CREATE TABLE Orders (
+  OrderID INT PRIMARY KEY,
+  DishID INT,
+  CustomerName VARCHAR(100),
+  Quantity INT,
+  OrderDate DATE,
+  FOREIGN KEY (DishID) REFERENCES Dishes(DishID)
+);
