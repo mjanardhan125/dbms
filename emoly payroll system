@@ -1,0 +1,14 @@
+CREATE TABLE Employees (
+  EmpID INT PRIMARY KEY,
+  Name VARCHAR(100),
+  Department VARCHAR(50),
+  JoinDate DATE
+);
+
+CREATE TABLE Salaries (
+  EmpID INT,
+  BasicPay DECIMAL(10,2),
+  HRA DECIMAL(10,2),
+  Deductions DECIMAL(10,2),
+  FOREIGN KEY (EmpID) REFERENCES Employees(EmpID)
+);
