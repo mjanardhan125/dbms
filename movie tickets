@@ -1,0 +1,22 @@
+CREATE TABLE Movies (
+  MovieID INT PRIMARY KEY,
+  Title VARCHAR(100),
+  Genre VARCHAR(50),
+  Duration INT
+);
+
+CREATE TABLE Shows (
+  ShowID INT PRIMARY KEY,
+  MovieID INT,
+  Theater VARCHAR(100),
+  ShowTime TIME,
+  FOREIGN KEY (MovieID) REFERENCES Movies(MovieID)
+);
+
+CREATE TABLE Bookings (
+  BookingID INT PRIMARY KEY,
+  ShowID INT,
+  CustomerName VARCHAR(100),
+  Seats INT,
+  FOREIGN KEY (ShowID) REFERENCES Shows(ShowID)
+);
