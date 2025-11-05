@@ -1,0 +1,20 @@
+CREATE TABLE Students (
+  StudentID INT PRIMARY KEY,
+  Name VARCHAR(100),
+  Major VARCHAR(50)
+);
+
+CREATE TABLE Courses (
+  CourseID INT PRIMARY KEY,
+  Title VARCHAR(100),
+  Credits INT
+);
+
+CREATE TABLE Enrollments (
+  EnrollmentID INT PRIMARY KEY,
+  StudentID INT,
+  CourseID INT,
+  Grade CHAR(2),
+  FOREIGN KEY (StudentID) REFERENCES Students(StudentID),
+  FOREIGN KEY (CourseID) REFERENCES Courses(CourseID)
+);
